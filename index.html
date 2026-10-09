@@ -1,265 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading Practice: B1 Chocolate</title>
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --primary: #64748b;
-      --text: #1e293b;
-      --border: #e2e8f0;
-      --correct-bg: #dcfce7;
-      --correct-border: #16a34a;
-      --wrong-bg: #fee2e2;
-      --wrong-border: #dc2626;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 24px 16px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      max-width: 680px;
-      width: 100%;
-      background: var(--card-bg);
-      padding: 28px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .passage-box {
-      background-color: #f1f5f9;
-      border-left: 4px solid var(--primary);
-      padding: 16px;
-      border-radius: 6px;
-      margin-bottom: 28px;
-      font-size: 1.05rem;
-    }
-
-    .instruction {
-      font-size: 0.95rem;
-      color: #64748b;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .question-block {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-      margin-bottom: 18px;
-      background: #fafafa;
-    }
-
-    .statement {
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 1rem;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    button.choice-btn {
-      flex: 1;
-      min-width: 100px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      color: #334155;
-      transition: all 0.2s ease;
-    }
-
-    button.choice-btn:hover:not(:disabled) {
-      background-color: #e2e8f0;
-    }
-
-    button.choice-btn:disabled {
-      cursor: not-allowed;
-      opacity: 0.85;
-    }
-
-    .feedback-box {
-      display: none;
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-    }
-
-    .correct-feedback {
-      background-color: var(--correct-bg);
-      border: 1px solid var(--correct-border);
-      color: #14532d;
-    }
-
-    .incorrect-feedback {
-      background-color: var(--wrong-bg);
-      border: 1px solid var(--wrong-border);
-      color: #7f1d1d;
-    }
-
-    .btn-correct {
-      background-color: #22c55e !important;
-      color: white !important;
-      border-color: #16a34a !important;
-    }
-
-    .btn-wrong {
-      background-color: #ef4444 !important;
-      color: white !important;
-      border-color: #dc2626 !important;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Practice: A1 Daily Routine</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #4f46e5;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --correct-bg: #dcfce7;
+            --correct-border: #16a34a;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #dc2626;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 24px 16px; display: flex; justify-content: center; }
+        .container { max-width: 680px; width: 100%; background: var(--card-bg); padding: 28px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        h1 { font-size: 1.5rem; margin-bottom: 12px; color: var(--primary); }
+        .passage-box { background-color: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 24px; font-size: 1.05rem; }
+        .instruction { font-weight: 600; margin-bottom: 16px; display: block; }
+        .question-block { border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; background: #fafafa; }
+        .statement { font-weight: 500; margin-bottom: 12px; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .choice-btn { background: #fff; border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+        .choice-btn:hover:not(:disabled) { background-color: #f3f4f6; }
+        .choice-btn:disabled { cursor: not-allowed; opacity: 0.7; }
+        .btn-correct { background-color: var(--correct-bg) !important; border-color: var(--correct-border) !important; color: #14532d; }
+        .btn-wrong { background-color: var(--wrong-bg) !important; border-color: var(--wrong-border) !important; color: #991b1b; }
+        .feedback-box { display: none; margin-top: 12px; font-size: 0.95rem; font-weight: 600; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Reading Comprehension</h1>
+        <div class="passage-box">
+            <p><strong>My Daily Routine:</strong></p>
+            <p>Every morning, I wake up at 6:30 AM. I make my bed, brush my teeth, and wash my face. Then, I eat a healthy breakfast with my family. I usually drink coffee and eat oatmeal with fruit. After breakfast, I take the bus to work. I work from 8:30 AM to 5:00 PM. In the evening, I come home, cook dinner, and watch TV to relax. I go to bed at 10:00 PM.</p>
+        </div>
 
-  <div class="container">
-    <h1>Reading Comprehension</h1>
-    
-    <div class="passage-box">
-      <strong>The History of Chocolate:</strong><br>
-      Chocolate has a fascinating history that began thousands of years ago. It originally started as a bitter drink in ancient Mesoamerica, where the Olmec and Maya civilizations used cacao beans to make a special, frothy beverage. Later, the Aztecs valued the beans so much that they used them as money. When Spanish explorers brought chocolate to Europe in the sixteenth century, it was a luxury only the rich could enjoy. Over time, people began to add sugar and milk to the recipe, creating the sweet treat we know today.
+        <span class="instruction">Read each statement and select TRUE, FALSE, or NOT GIVEN.</span>
+
+        <!-- Question 1 -->
+        <div class="question-block" id="q1">
+            <p class="statement">1. I wake up at 6:30 AM every morning.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q1', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q1', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q1', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block" id="q2">
+            <p class="statement">2. I drink tea with breakfast.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q2', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q2', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q2', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-block" id="q3">
+            <p class="statement">3. I drive my car to work.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q3', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q3', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q3', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-block" id="q4">
+            <p class="statement">4. I work for eight hours.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q4', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q4', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q4', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-block" id="q5">
+            <p class="statement">5. I like to read books before sleeping.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q5', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q5', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q5', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-block" id="q6">
+            <p class="statement">6. I go to bed at 10:00 PM.</p>
+            <div class="btn-group">
+                <button class="choice-btn" onclick="checkAnswer('q6', 'TRUE')">TRUE</button>
+                <button class="choice-btn" onclick="checkAnswer('q6', 'FALSE')">FALSE</button>
+                <button class="choice-btn" onclick="checkAnswer('q6', 'NOT GIVEN')">NOT GIVEN</button>
+            </div>
+            <div class="feedback-box"></div>
+        </div>
     </div>
 
-    <p class="instruction">Read each statement and select <strong>TRUE</strong>, <strong>FALSE</strong>, or <strong>NOT GIVEN</strong>.</p>
+    <script>
+        function checkAnswer(questionId, selectedAnswer) {
+            const answers = {
+                'q1': 'TRUE',
+                'q2': 'FALSE',
+                'q3': 'FALSE',
+                'q4': 'FALSE',
+                'q5': 'NOT GIVEN',
+                'q6': 'TRUE'
+            };
 
-    <!-- Question 1 -->
-    <div class="question-block" id="q1">
-      <div class="statement">1. Ancient Mesoamericans drank chocolate as a sweet beverage.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q1', 'FALSE', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q1', 'FALSE', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q1', 'FALSE', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The text mentions that it originally started as a "bitter drink," not a sweet one.
-      </div>
-    </div>
+            const block = document.getElementById(questionId);
+            const buttons = block.querySelectorAll('.choice-btn');
+            const feedbackBox = block.querySelector('.feedback-box');
+            
+            buttons.forEach(btn => btn.disabled = true);
 
-    <!-- Question 2 -->
-    <div class="question-block" id="q2">
-      <div class="statement">2. Cacao beans were used for currency by the Aztec civilization.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q2', 'TRUE', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q2', 'TRUE', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q2', 'TRUE', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The passage explicitly states that the Aztecs "used them as money".
-      </div>
-    </div>
+            const isCorrect = selectedAnswer === answers[questionId];
+            feedbackBox.style.display = 'block';
 
-    <!-- Question 3 -->
-    <div class="question-block" id="q3">
-      <div class="statement">3. Chocolate was easily available to all social classes in sixteenth-century Europe.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q3', 'FALSE', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q3', 'FALSE', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q3', 'FALSE', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The text explains that chocolate was "a luxury only the rich could enjoy".
-      </div>
-    </div>
-
-    <!-- Question 4 -->
-    <div class="question-block" id="q4">
-      <div class="statement">4. Milk was added to chocolate recipes during the Mesoamerican period.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q4', 'NOT GIVEN', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q4', 'NOT GIVEN', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q4', 'NOT GIVEN', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The text mentions adding milk "Over time" after it was brought to Europe, but doesn't specify if Mesoamericans added it.
-      </div>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="question-block" id="q5">
-      <div class="statement">5. European explorers discovered cacao beans in Spain.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q5', 'FALSE', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q5', 'FALSE', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q5', 'FALSE', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The explorers brought chocolate *to* Europe from Mesoamerica; they did not find cacao beans in Spain.
-      </div>
-    </div>
-
-    <!-- Question 6 -->
-    <div class="question-block" id="q6">
-      <div class="statement">6. The Maya civilization was the first to use cacao beans.</div>
-      <div class="btn-group">
-        <button class="choice-btn" onclick="checkAnswer('q6', 'NOT GIVEN', this)">TRUE</button>
-        <button class="choice-btn" onclick="checkAnswer('q6', 'NOT GIVEN', this)">FALSE</button>
-        <button class="choice-btn" onclick="checkAnswer('q6', 'NOT GIVEN', this)">NOT GIVEN</button>
-      </div>
-      <div class="feedback-box">
-        <strong>Explanation:</strong> The text mentions the Olmec and Maya civilizations used cacao beans, but it does not state who began using them first.
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    function checkAnswer(questionId, correctAnswer, clickedButton) {
-      const questionBlock = document.getElementById(questionId);
-      const buttons = questionBlock.querySelectorAll('.choice-btn');
-      const feedbackBox = questionBlock.querySelector('.feedback-box');
-      const selectedAnswer = clickedButton.innerText.trim();
-
-      // Disable all buttons in this question
-      buttons.forEach(btn => {
-        btn.disabled = true;
-        if (btn.innerText.trim() === correctAnswer) {
-          btn.classList.add('btn-correct');
+            if (isCorrect) {
+                event.target.classList.add('btn-correct');
+                feedbackBox.style.color = 'var(--correct-border)';
+                feedbackBox.innerHTML = 'Correct!';
+            } else {
+                event.target.classList.add('btn-wrong');
+                feedbackBox.style.color = 'var(--wrong-border)';
+                feedbackBox.innerHTML = 'Incorrect. The correct answer is ' + answers[questionId] + '.';
+            }
         }
-      });
-
-      // Show immediate feedback
-      feedbackBox.style.display = 'block';
-      if (selectedAnswer === correctAnswer) {
-        feedbackBox.classList.add('correct-feedback');
-        feedbackBox.innerHTML = '<strong>Correct!</strong> ' + feedbackBox.innerHTML;
-      } else {
-        clickedButton.classList.add('btn-wrong');
-        feedbackBox.classList.add('incorrect-feedback');
-        feedbackBox.innerHTML = '<strong>Incorrect.</strong> Correct answer: <strong>' + correctAnswer + '</strong>.<br>' + feedbackBox.innerHTML;
-      }
-    }
-  </script>
-
+    </script>
 </body>
-                                                                                    </html>
-                                                                                    
+</html>
